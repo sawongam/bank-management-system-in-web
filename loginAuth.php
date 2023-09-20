@@ -18,7 +18,7 @@ if ($submitted) {
    $result = mysqli_query($conn, $sql);
    $countUserPass = mysqli_num_rows($result);
    if ($countUserPass == 1) {
-    header('Location: dashboard.php');
+    header('Location: pages/dashboard.php');
     exit;
    }
    else echo "failed";

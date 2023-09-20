@@ -6,6 +6,6 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <h1>THis is a Dashboard</h1>
+    <h1>This is a Dashboard</h1>
 </body>
 </html>
