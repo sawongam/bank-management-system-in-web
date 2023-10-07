@@ -8,12 +8,16 @@
 </head>
 
 <body>
-    <form action="loginAuth.php" method="POST">
+    <form action="/process/loginAuth.php" method="POST">
         <input type="text" name="username" placeholder="Username">
         <input type="password" name="password" placeholder="Password">
         <input type="submit" name="submit" value="Login">
     </form>
-
+    <?php
+    if (isset($_GET['msg'])) {
+        echo $_GET['msg'];
+    }
+    ?>
 </body>
 
 </html>
