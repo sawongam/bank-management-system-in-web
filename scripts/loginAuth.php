@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 require('process/db.php');
 
 $username = $_POST['username'];
@@ -18,4 +18,4 @@ if ($submitted) {
       header('Location: index.php?msg=Invalid Credentials');
 }
 
-?>
+?> -->

@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 session_start();
 if(isset($_SESSION['AccNo'])){
 if(isset($_GET['msg'])){
@@ -21,4 +21,4 @@ if(isset($_GET['msg'])){
 }else{
     header('Location: index.php');
 }
-?>
+?> -->
