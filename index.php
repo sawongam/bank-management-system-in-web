@@ -4,20 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank Management System by sawongam</title>
+    <title>Sawongam Bank Ltd - Putting "fun" in "funds" since 1969</title>
 </head>
 
 <body>
-    <form action="/process/loginAuth.php" method="POST">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit" name="submit" value="Login">
-    </form>
-    <?php
-    if (isset($_GET['msg'])) {
-        echo $_GET['msg'];
-    }
-    ?>
+    <h1> pp ok</h1>
 </body>
 
 </html>

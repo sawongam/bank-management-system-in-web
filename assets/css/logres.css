@@ -1,0 +1,51 @@
+.body-whole {
+    font-family: 'Inter', sans-serif;
+}
+
+.login-header {
+    color: #1A1A1A;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.login-label {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.login-label a {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.textfield {
+    border-color: #656ED3 !important;
+    background-color: #EBEFFF !important;
+}
+
+.elevatedButton {
+    width: 100%;
+    border-color: white !important;
+    /* border-radius: none !important; */
+    background-color: #656ED3 !important;
+}
+
+.elevatedButton:hover {
+    background-color: #545bb0 !important;
+}
+
+.login-block {
+    position: fixed; 
+    top: 0; 
+    right: 0; 
+    bottom: 0; 
+    width: 32.5%; 
+    background-color: #AFB3FF; 
+    z-index: -1;
+    overflow: hidden;
+}

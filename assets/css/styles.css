@@ -1,0 +1,22 @@
+.body-color {
+    background-color: #EBEFFF;
+}
+
+.no-underline {
+    text-decoration: none;
+    color: inherit;
+}
+
+.zoom-container {
+    overflow: hidden;
+}
+
+.zoom-on-hover {
+    transition: transform .4s;
+}
+
+.zoom-on-hover:hover {
+    transform: scale(1.05);
+}
+
+

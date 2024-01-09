@@ -1,5 +1,5 @@
-<!-- <?php
-require('process/db.php');
+<?php
+require('../configs/db.php');
 
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -13,9 +13,9 @@ if ($submitted) {
    if ($countUserPass == 1) {
       session_start();
       $_SESSION['AccNo'] = $data['AccNo'];
-      header('Location: dashboard.php');
+      header('Location: ../pages/dashboard.php');
    } else
-      header('Location: index.php?msg=Invalid Credentials');
+      header('Location: ../index.php?msg=Invalid Credentials');
 }
 
-?> -->
+?>

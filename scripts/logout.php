@@ -1,7 +1,5 @@
-<!-- <?php
+<?php
     session_start();
     session_destroy();
+    header('Location: ../index.php?msg=Logout Successfully');
 ?>
-<script>
-    location.replace('/BankManagmentSystem?msg=Logout Successfully');
-</script> -->
