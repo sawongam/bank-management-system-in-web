@@ -49,3 +49,14 @@
     z-index: -1;
     overflow: hidden;
 }
+
+.register-d {
+    position: absolute;
+    top: 0;
+}
+
+.register-bank {
+    position: absolute; 
+    left: 0;
+    bottom: 0; 
+}
