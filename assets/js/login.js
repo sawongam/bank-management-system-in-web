@@ -1,4 +1,4 @@
-// Eye Logic for Login Page
+// Eye Logic
 let eyeLogin = document.getElementById('eye-login');
 let password = document.getElementById('password');
 eyeLogin.onclick = function () {
