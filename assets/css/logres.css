@@ -60,3 +60,16 @@
     left: 0;
     bottom: 0; 
 }
+
+.password-field {
+    position: relative;
+}
+
+.password-icon {
+    position: absolute;
+    top: 71%;
+    right: 10px;
+    transform: translateY(-50%);
+    height: 20px; 
+    cursor: pointer;
+}

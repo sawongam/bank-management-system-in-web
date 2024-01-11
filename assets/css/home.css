@@ -2,6 +2,10 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+.gap {
+    height: 150px;
+}
+
 .section-title {
     font-size: 40px;
     font-style: normal;
@@ -21,4 +25,23 @@
 
 #service-list {
     font-style: italic;
+}
+
+.best-title {
+    color: var(--text-heading-color, #1E1D4C);
+    text-align: center;
+    /* font-family: Open Sans; */
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.best-info {
+    color: var(--TEXT-CLR, #5E6282);
+    /* font-family: Poppins; */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
 }
