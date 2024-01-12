@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="../scripts/loginAuth.php" method="POST">
+    <form action="../scripts/login_auth.php" method="POST">
         <input type="text" name="username" placeholder="Username">
         <input type="password" name="password" placeholder="Password">
         <input type="submit" name="submit" value="Login">
