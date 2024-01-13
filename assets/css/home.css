@@ -6,6 +6,47 @@
     height: 150px;
 }
 
+
+
+nav li {
+    color: var(--1st, #212832);
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-top: 10px;
+    padding-left: 88px;
+}
+
+nav a:hover {
+    color: #F1A501;
+}
+
+.nav-signup-container {
+    display: inline-block;
+}
+
+.nav-signup {
+    border: #000000 1px solid;
+    padding: 10px 20px;
+    border-radius: 7px;
+}
+
+
+
+.bank-decor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 70%;
+    width: 40%;
+    /* background-color: #AFB3FF;  */
+    z-index: -1;
+    overflow: hidden;
+}
+
 .bank-subtitle {
     color: #DF6951;
     font-family: 'Poppins';
@@ -36,7 +77,7 @@
 }
 
 .bank-btn {
-    box-shadow: 10px 20px 35px 0px rgba(241, 165, 1, 0.15)!important;
+    box-shadow: 10px 20px 35px 0px rgba(241, 165, 1, 0.15) !important;
     background: var(--yellow, #F1A501) !important;
     font-size: 13px !important;
     padding-left: 15px !important;
@@ -49,6 +90,18 @@
     background: var(--yellow, #de9803) !important;
     color: #fff !important;
 }
+
+.bank-phone {
+    color: var(--black-100, #010101);
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 1px;
+}
+
 
 
 .section-title {
