@@ -6,7 +6,13 @@
     height: 150px;
 }
 
+.nav-logo {
+    transition: transform .4s;
+}
 
+.nav-logo:hover {
+    transform: scale(1.1);
+}
 
 nav li {
     color: var(--1st, #212832);
@@ -19,8 +25,13 @@ nav li {
     padding-left: 88px;
 }
 
-nav a:hover {
-    color: #F1A501;
+nav ul.nav-change-color {
+    transition: transform 1s;
+}
+
+nav ul a.nav-change-color:hover {
+    color: #F1A501!important;
+    scale: 1.2;
 }
 
 .nav-signup-container {
@@ -31,8 +42,14 @@ nav a:hover {
     border: #000000 1px solid;
     padding: 10px 20px;
     border-radius: 7px;
+    transition: transform .4s;
 }
 
+.nav-signup:hover {
+    border: #F1A501 1px solid;
+    background-color: #F1A501;
+    color: #fff;
+}
 
 
 .bank-decor {
@@ -127,6 +144,7 @@ nav a:hover {
 }
 
 
+
 .best-subtitle {
     color: var(--TEXT-CLR, #5E6282);
     font-size: 15px;
@@ -197,6 +215,15 @@ nav a:hover {
     text-transform: uppercase;
 }
 
+.text-rotate {
+    transition: transform 1s;
+}
+
+.text-rotate:hover {
+    transform: rotate(360deg)!important;
+    color: black!important;
+}
+
 
 footer {
     border-radius: 15px;
@@ -229,6 +256,10 @@ footer ul {
 footer li {
     list-style-type: none;
     line-height: 30px;
+}
+
+footer li:hover {
+    color: var(--yellow, #F1A501);
 }
 
 footer a {
