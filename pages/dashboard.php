@@ -26,7 +26,9 @@ $balance = $data['Balance'];
 
 <body>
     <h1>Welcome to Sawongam Bank</h1>
-    <p>Your account balance is <?php echo $balance?></p>
+    <p>Your account balance is
+        <?php echo $balance ?>
+    </p>
     <a href="../scripts/logout.php">Logout</a>
 </body>
 
