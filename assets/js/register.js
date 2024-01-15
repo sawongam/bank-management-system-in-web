@@ -69,7 +69,6 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
     if (password === '') {
         errorPassword.textContent = 'Password is required';
-        eyeRegister.style.top = '56%';
         return;
     } else {
         errorPassword.textContent = '';
@@ -91,7 +90,6 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
     if (confirmPassword !== password) {
         errorConfirmPassword.textContent = 'Password does not match';
-        eyeConfirm.style.top = '56%';
         return;
     } else {
         errorConfirmPassword.textContent = '';

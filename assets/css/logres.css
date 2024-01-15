@@ -31,7 +31,6 @@
 .elevatedButton {
     width: 100%;
     border-color: white !important;
-    /* border-radius: none !important; */
     background-color: #656ED3 !important;
 }
 
@@ -66,15 +65,16 @@
 }
 
 .password-icon {
+    height: 20px; 
     position: absolute;
-    top: 71%;
+    top: 58%;
     right: 10px;
     transform: translateY(-50%);
-    height: 20px; 
     cursor: pointer;
 }
 
 .error-font {
+    height: 1em;
+    display: block;
     font-size: small !important;
-    display: block !important;
 }

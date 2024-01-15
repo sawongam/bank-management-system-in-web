@@ -29,28 +29,28 @@
                 <div class="col-8">
                     <div class="col-md-12 fw-bold mb-5 text-center login-header">Please Fill out form to Register!</div>
                     <form>
-                        <div class="mb-3">
+                        <div class="mb-1">
                             <label for="fullName" class="form-label text-black login-label">Full Name</label>
                             <input type="text" class="form-control rounded-4 textfield" id="fullName">
                             <small id="error-fullName" class="form-text text-danger error-font"></small>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-1">
                             <label for="address" class="form-label text-black login-label">Address</label>
                             <input type="text" class="form-control rounded-4 textfield" id="address">
                             <small id="error-address" class="form-text text-danger error-font"></small>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-1">
                             <label for="email" class="form-label text-black login-label">Email</label>
                             <input type="email" class="form-control rounded-4 textfield" id="email">
                             <small id="error-email" class="form-text text-danger error-font"></small>
                         </div>
-                        <div class="mb-4 password-field">
+                        <div class="mb-2 password-field">
                             <label for="password" class="form-label text-black login-label">Password</label>
                             <input type="password" class="form-control rounded-4 textfield" id="password">
                             <img src="../assets/img/eye-open.png" class="password-icon" id="eye-register">
-                            <small id="error-password" class="m-0 p-0 text-danger error-font"></small>
+                            <small id="error-password" class="text-danger error-font"></small>
                         </div>
-                        <div class="mb-4 password-field">
+                        <div class="mb-2 password-field">
                             <label for="confirmPassword" class="form-label text-black login-label">Confirm
                                 Password</label>
                             <input type="password" class="form-control rounded-4 textfield" id="confirm-password">

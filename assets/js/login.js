@@ -31,7 +31,6 @@ document.querySelector('form').addEventListener('submit', function (event) {
     if (password === '') {
         event.preventDefault();
         errorPassword.textContent = 'Password is required';
-        eyeLogin.style.top = '56%';
         return;
     } else {
         errorPassword.textContent = '';
