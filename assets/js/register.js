@@ -24,7 +24,6 @@ eyeConfirm.onclick = function () {
 
 // Form Validation
 document.querySelector('form').addEventListener('submit', function (event) {
-    event.preventDefault();
 
     let fullName = document.getElementById('fullName').value;
     let address = document.getElementById('address').value;
@@ -39,6 +38,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
     let errorConfirmPassword = document.getElementById('error-confirmPassword');
 
     if (fullName === '') {
+        event.preventDefault();
         errorFullName.textContent = 'Full Name is required';
         return;
     } else {
@@ -46,6 +46,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
     }
 
     if (address === '') {
+        event.preventDefault();
         errorAddress.textContent = 'Address is required';
         return;
     } else {
@@ -53,6 +54,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
     }
 
     if (email === '') {
+        event.preventDefault();
         errorEmail.textContent = 'Email is required';
         return;
     } else {
@@ -61,6 +63,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
+        event.preventDefault();
         errorEmail.textContent = 'Please enter a valid email';
         return;
     } else {
@@ -68,6 +71,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
     }
 
     if (password === '') {
+        event.preventDefault();
         errorPassword.textContent = 'Password is required';
         return;
     } else {
@@ -89,11 +93,11 @@ document.querySelector('form').addEventListener('submit', function (event) {
     // }
 
     if (confirmPassword !== password) {
+        event.preventDefault();
         errorConfirmPassword.textContent = 'Password does not match';
         return;
     } else {
         errorConfirmPassword.textContent = '';
     }
 
-    this.submit();
 });

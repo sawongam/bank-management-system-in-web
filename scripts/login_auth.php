@@ -11,6 +11,12 @@ $password = $_POST['password'];
 
 $sql = "SELECT * FROM credentials WHERE AccNo = '$accNo' AND Pass = '$password'";
 $result = mysqli_query($conn, $sql);
+
+if (!$result) {
+   header('Location: ../pages/login.php?msg=Cannot connect to database');
+   exit;
+}
+
 $data = mysqli_fetch_assoc($result);
 $countUserPass = mysqli_num_rows($result);
 if ($countUserPass == 1) {
@@ -20,4 +26,3 @@ if ($countUserPass == 1) {
 } else {
    header('Location: ../pages/login.php?msg=Invalid Credentials');
 }
-?>

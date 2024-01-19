@@ -18,7 +18,7 @@ if (isset($_GET['msg'])) {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/logres.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 </head>
 
 <body class="body-color body-whole">
@@ -96,7 +96,7 @@ if (isset($_GET['msg'])) {
 
 
     <script src="../assets/js/login.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
 </body>
 
 </html>
