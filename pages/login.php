@@ -1,4 +1,12 @@
 <?php
+//Check if user is logged in
+session_start();
+if (isset($_SESSION['AccNo'])) {
+    header('Location: ../pages/dashboard.php');
+    exit;
+}
+
+//Check if there is an GET message
 $error = '';
 if (isset($_GET['msg'])) {
     $error = $_GET['msg'];

@@ -9,7 +9,7 @@ require('../configs/db.php');
 $fullname = $_POST['fullName'];
 $address = $_POST['address'];
 $email = $_POST['email'];
-$password = $_POST['password'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 //Check for Duplicate Account
 $sql_dupCheck = "SELECT * FROM userinfo WHERE Email = '$email'";

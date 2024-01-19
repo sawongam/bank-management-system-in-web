@@ -9,7 +9,7 @@ require('../configs/db.php');
 $accNo = $_POST['accountNumber'];
 $password = $_POST['password'];
 
-$sql = "SELECT * FROM credentials WHERE AccNo = '$accNo' AND Pass = '$password'";
+$sql = "SELECT * FROM credentials WHERE AccNo = '$accNo'";
 $result = mysqli_query($conn, $sql);
 
 if (!$result) {
@@ -18,8 +18,9 @@ if (!$result) {
 }
 
 $data = mysqli_fetch_assoc($result);
-$countUserPass = mysqli_num_rows($result);
-if ($countUserPass == 1) {
+$hashed_password = $data['Pass'];
+
+if (password_verify($password, $hashed_password)) {
    session_start();
    $_SESSION['AccNo'] = $data['AccNo'];
    header('Location: ../pages/dashboard.php');
