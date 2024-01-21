@@ -91,7 +91,7 @@ if (isset($_GET['msg'])) {
 
             <!-- Sawongam Logo Section -->
             <div class="col-lg-6 align-items-center justify-content-center pb-5 d-none d-lg-flex"
-                style="height: 100vh; background-image: url('path-to-your-background-image.jpg'); background-position: right;">
+                style="height: 100vh; background-position: right;">
                 <a href="../index.php"><img src="../assets/img/logo.png" class="zoom-on-hover" alt="Sawongam Logo"></a>
                 <!-- Login Side Block -->
                 <div class="login-block"></div>

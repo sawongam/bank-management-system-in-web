@@ -1,0 +1,74 @@
+.sidebar{
+  height: 2400px!important;
+}
+#wrapper {
+  grid-template-rows: 2400px!important;
+}
+
+.footer{
+  position: absolute;
+  top: 2220px!important;
+  width: 100%;
+}
+.dashboard-header a {
+    display: flex;
+    align-items: center;
+  }
+  .card-price .progress {
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+  }
+  .projects-row{
+    padding: 0 12px;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+  .earnings{
+    margin-bottom: 30px;
+  }
+  .revenue-body{
+    justify-content: center;
+  }
+  .revenue-body img{
+    width: 70%;
+  }
+  .overview-row{
+    flex-wrap: wrap;
+  }
+  .revenue{
+    margin-top: 0;
+  }
+  .revenue-body{
+    padding: 16px;
+    width: 100%;
+    height: max-content;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .sidebar {
+    height: auto!important; 
+  }
+  
+  .projects-row {
+    width: 100%!important;
+  }
+  
+  .revenue-body canvas {
+    width: 100%!important; 
+  }
+  
+  .overview-row {
+    flex-wrap: wrap!important;
+  }

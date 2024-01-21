@@ -5,6 +5,11 @@ if (!isset($_SESSION['AccNo'])) {
     exit;
 }
 
+if (!isset($_POST['submit'])) {
+    header('Location: ../pages/dashboard/index.php?msg=Please make the transaction');
+    exit;
+}
+
 require('../configs/db.php');
 
 $receiver_accNo = $_POST['receiver_accNo'];
@@ -17,7 +22,7 @@ $chk_bal = "SELECT Balance FROM balance WHERE AccNo = '$sender_accNo'";
 $chk_bal_result = mysqli_query($conn, $chk_bal);
 $sender_balance = mysqli_fetch_assoc($chk_bal_result)['Balance'];
 if ($sender_balance < $amount) {
-    header('Location: ../pages/dashboard.php?msg=Insufficient Balance');
+    header('Location: ../pages/dashboard/index.php?msg=Insufficient Balance');
     exit;
 }
 
@@ -25,7 +30,7 @@ if ($sender_balance < $amount) {
 $chk_acc = "SELECT AccNo FROM credentials WHERE AccNo = '$receiver_accNo'";
 $chk_acc_result = mysqli_query($conn, $chk_acc);
 if (mysqli_num_rows($chk_acc_result) == 0 || $receiver_accNo == $sender_accNo) {
-    header('Location: ../pages/dashboard.php?msg=Invalid Account Number');
+    header('Location: ../pages/dashboard/index.php?msg=Invalid Account Number');
     exit;
 }
 $receiver_balance = mysqli_fetch_assoc(mysqli_query($conn, "SELECT Balance FROM balance 
@@ -49,5 +54,5 @@ VALUES ('$sender_accNo', '$receiver_accNo', '$amount', '$remarks')";
 $insert_transaction_result = mysqli_query($conn, $insert_transaction);
 
 //Redirect to dashboard with success message
-header('Location: ../pages/dashboard.php?msg=Transaction Successful');
+header('Location: ../pages/dashboard/index.php?msg=Transaction Successful');
 exit;

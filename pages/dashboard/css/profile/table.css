@@ -1,0 +1,17 @@
+.sidebar{
+    height: 2200px!important;
+  }
+  #wrapper {
+    grid-template-rows: 2200px!important;
+  }
+  
+  .footer{
+    position: absolute;
+    top: 2020px!important;
+    width: 100%;
+  }
+
+.form-row-col {
+    margin: 0 0 16px;
+    width: 49%;
+}

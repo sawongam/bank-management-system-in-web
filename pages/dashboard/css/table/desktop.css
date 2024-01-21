@@ -1,0 +1,17 @@
+.sidebar{
+    height: 1300px!important;
+  }
+  #wrapper {
+    grid-template-rows: 1300px!important;
+  }
+  
+  .footer{
+    position: absolute;
+    top: 1120px!important;
+    width: 100%;
+  }
+
+
+
+
+  

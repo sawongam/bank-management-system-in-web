@@ -23,7 +23,7 @@ $hashed_password = $data['Pass'];
 if (password_verify($password, $hashed_password)) {
    session_start();
    $_SESSION['AccNo'] = $data['AccNo'];
-   header('Location: ../pages/dashboard.php');
+   header('Location: ../pages/dashboard/index.php');
 } else {
    header('Location: ../pages/login.php?msg=Invalid Credentials');
 }

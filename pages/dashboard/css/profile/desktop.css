@@ -1,0 +1,31 @@
+.sidebar{
+  height: 1600px!important;
+}
+#wrapper {
+  grid-template-rows: 1600px!important;
+}
+
+.footer{
+  position: absolute;
+  top: 1420px!important;
+  width: 100%;
+}
+
+
+
+.form-row-textarea{
+    width: 50%;
+  }
+
+  .row-prof1 {
+    padding: 0 12px;
+    width: 33%;
+  }
+  
+  .row-prof2 {
+    width: 66%;
+    padding: 0 12px;
+  }
+  .row-profile-container{
+    flex-wrap: nowrap;
+  }
