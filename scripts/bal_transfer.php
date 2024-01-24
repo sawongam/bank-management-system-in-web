@@ -17,12 +17,22 @@ $amount = $_POST['amount'];
 $remarks = $_POST['remarks'];
 $sender_accNo = $_SESSION['AccNo'];
 
+//  Check the referrer
+$referrer_raw = basename($_SERVER['HTTP_REFERER']);
+$referrer = explode('?', $referrer_raw)[0];
+
 //Check Sender's Balance
 $chk_bal = "SELECT Balance FROM balance WHERE AccNo = '$sender_accNo'";
 $chk_bal_result = mysqli_query($conn, $chk_bal);
 $sender_balance = mysqli_fetch_assoc($chk_bal_result)['Balance'];
 if ($sender_balance < $amount) {
-    header('Location: ../pages/dashboard/index.php?msg=Insufficient Balance');
+    // Check if the referrer is index.php or transfer.php
+    if ($referrer == 'index.php') {
+        header('Location: ../pages/dashboard/index.php?msg=Insufficient Balance');
+    } else if ($referrer == 'transfer.php') {
+        header('Location: ../pages/dashboard/transfer.php?msg=Insufficient Balance');
+    }
+
     exit;
 }
 
@@ -30,11 +40,17 @@ if ($sender_balance < $amount) {
 $chk_acc = "SELECT AccNo FROM credentials WHERE AccNo = '$receiver_accNo'";
 $chk_acc_result = mysqli_query($conn, $chk_acc);
 if (mysqli_num_rows($chk_acc_result) == 0 || $receiver_accNo == $sender_accNo) {
-    header('Location: ../pages/dashboard/index.php?msg=Invalid Account Number');
+    // Check if the referrer is index.php or transfer.php
+    if ($referrer == 'index.php') {
+        header('Location: ../pages/dashboard/index.php?msg=Invalid Account Number');
+    } else if ($referrer == 'transfer.php') {
+        header('Location: ../pages/dashboard/transfer.php?msg=Invalid Account Number');
+    }
+
     exit;
 }
-$receiver_balance = mysqli_fetch_assoc(mysqli_query($conn, "SELECT Balance FROM balance 
-WHERE AccNo = '$receiver_accNo'"))['Balance'];
+
+$receiver_balance = mysqli_fetch_assoc(mysqli_query($conn, "SELECT Balance FROM balance WHERE AccNo = '$receiver_accNo'"))['Balance'];
 
 //Transfer
 $sender_balance -= $amount;
@@ -49,10 +65,14 @@ $update_receiver_balance = "UPDATE balance SET Balance = '$receiver_balance' WHE
 $update_receiver_balance_result = mysqli_query($conn, $update_receiver_balance);
 
 //Insert into Transactions
-$insert_transaction = "INSERT INTO transactions (Sender, Receiver, Amount, Remarks) 
-VALUES ('$sender_accNo', '$receiver_accNo', '$amount', '$remarks')";
+$insert_transaction = "INSERT INTO transactions (Sender, Receiver, Amount, Remarks) VALUES ('$sender_accNo', '$receiver_accNo', '$amount', '$remarks')";
 $insert_transaction_result = mysqli_query($conn, $insert_transaction);
 
-//Redirect to dashboard with success message
-header('Location: ../pages/dashboard/index.php?msg=Transaction Successful');
+// Check if the referrer is index.php or transfer.php
+if ($referrer == 'index.php') {
+    header('Location: ../pages/dashboard/index.php?msg=Transaction Successful');
+} else if ($referrer == 'transfer.php') {
+    header('Location: ../pages/dashboard/transfer.php?msg=Transaction Successful');
+}
+
 exit;

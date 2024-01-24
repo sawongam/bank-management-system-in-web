@@ -2,7 +2,7 @@
 //Check if user is logged in
 session_start();
 if (isset($_SESSION['AccNo'])) {
-    header('Location: ../pages/dashboard.php');
+    header('Location: ../pages/dashboard/index.php');
     exit;
 }
 
