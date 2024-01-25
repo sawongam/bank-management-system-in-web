@@ -1,19 +1,40 @@
 <?php
 session_start();
-if (!isset($_SESSION['AccNo'])) {
-    header('Location: ../login.php?msg=Please login to continue');
-    exit;
-}
+$accNo = $_SESSION['AccNo'];
 
-// Generate the statement
-$statement = "Account Number: " . $_SESSION['AccNo'] . "\n";
-$statement .= "Full Name: " . $_SESSION['name'] . "\n";
-$statement .= "Address: " . $_SESSION['address'] . "\n";
-$statement .= "Email: " . $_SESSION['email'] . "\n";
+require('../configs/db.php');
 
-// Set the headers to tell the browser to download the file
-header('Content-Type: text/plain');
-header('Content-Disposition: attachment; filename="statement.txt"');
+// Extract the transactions
+$chk_trns = "SELECT * FROM transactions WHERE Sender = '$accNo' OR Receiver = '$accNo' ORDER BY Date DESC, Time DESC";
+$chk_trns_result = mysqli_query($conn, $chk_trns);
+$trns = mysqli_fetch_all($chk_trns_result, MYSQLI_ASSOC);
 
-// Output the statement
-echo $statement;
+// Start output buffering
+ob_start();
+
+// Include the HTML code
+include '../configs/statement_template.php';
+
+// Get the HTML code from the output buffer
+$html = ob_get_clean();
+
+// Load Dompdf library
+require_once '../vendor/autoload.php';
+
+// Create an instance of Dompdf
+$dompdf = new Dompdf\Dompdf();
+
+// Load the HTML into Dompdf
+$dompdf->loadHtml($html);
+
+// Set the paper size to A4 and orientation to landscape
+// $dompdf->setPaper('Letter', 'landscape');
+$dompdf->setPaper('A4', 'portrait');
+$dompdf->set_option('default_margin', 0);
+
+// Render the HTML as PDF
+$dompdf->render();
+
+// Output the PDF as a download
+$dompdf->stream("sawongam-bank-statement.pdf", array("Attachment" => true));
+exit(0);

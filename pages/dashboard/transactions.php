@@ -110,7 +110,7 @@ require('../../scripts/get_transactions.php'); // $trns
                         <p><span class="avatar-text">
                                 <?php echo $name ?>
                             </span></p>
-                            <div class="avatar-nav" style="background-image: url(<?php echo $pp ?>);"></div>
+                        <div class="avatar-nav" style="background-image: url(<?php echo $pp ?>);"></div>
                     </li>
                 </ul>
             </div>
@@ -122,7 +122,8 @@ require('../../scripts/get_transactions.php'); // $trns
                     <h3>
                         Bank Statement
                     </h3>
-                    <a href="../../scripts/statement_generator.php" class="generate-dash-btn"><i class="fas fa-download fa-sm text-white-50"></i>Download</a>
+                    <a href="../../scripts/statement_generator.php" class="generate-dash-btn"><i
+                            class="fas fa-download fa-sm text-white-50"></i>Download</a>
                 </div>
 
                 <!--First Rows-->
