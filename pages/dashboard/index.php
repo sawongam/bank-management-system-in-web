@@ -6,10 +6,11 @@ if (!isset($_SESSION['AccNo'])) {
 }
 
 require('../../configs/db.php');
+require('pp_check.php'); // PP Check
 require('../../scripts/get_balance.php'); // $balance
 require('../../scripts/get_userinfo.php'); // $name, $fName
-require('../../scripts/get_transactions.php'); // $trns
 require('../../scripts/get_analytics.php'); // $totalDebit, $totalCredit
+require('../../scripts/get_transactions.php'); // $trns
 
 // Check if there is an GET message
 $error = '';
@@ -86,6 +87,11 @@ if (isset($_GET['msg'])) {
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="support.php">
+                            <i class="fas fa-envelope"></i><span>Support</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="../../scripts/logout.php">
                             <i class="fas fa-sign-out-alt"></i><span>Log out</span>
                         </a>
@@ -113,7 +119,7 @@ if (isset($_GET['msg'])) {
                         <p><span class="avatar-text">
                                 <?php echo $name ?>
                             </span></p>
-                        <div class="avatar-nav"></div>
+                            <div class="avatar-nav" style="background-image: url(<?php echo $pp ?>);"></div>
                     </li>
                 </ul>
             </div>
@@ -210,7 +216,7 @@ if (isset($_GET['msg'])) {
                                             <tr>
                                                 <th>Transaction Type</th>
                                                 <th>Description</th>
-                                                <th>Balance</th>
+                                                <th>Amount</th>
                                                 <th>Remarks</th>
                                                 <th>Transaction Date</th>
                                             </tr>

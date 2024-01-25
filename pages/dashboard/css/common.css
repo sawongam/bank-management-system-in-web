@@ -301,7 +301,6 @@ nav i {
   height: 30px;
   margin: 0 12px;
   border-radius: 100%;
-  background-image: url(../img/ppSize.jpg);
   background-position: center;
   background-size: cover;
 }
@@ -517,6 +516,13 @@ footer {
   .revenue {
     flex: 1 !important;
   }
+
+  .profile {
+    flex: 1 !important;
+  }
+
+  .profileInfo {
+    flex: 2 !important;
+  }
+
 }
-
-

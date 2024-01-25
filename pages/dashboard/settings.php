@@ -6,9 +6,14 @@ if (!isset($_SESSION['AccNo'])) {
 }
 
 require('../../configs/db.php');
+require('../../scripts/get_userinfo.php'); // All user info
 require('pp_check.php'); // PP Check
-require('../../scripts/get_userinfo.php'); // $fName
-require('../../scripts/get_transactions.php'); // $trns
+
+// Check if there is an GET message
+$error = '';
+if (isset($_GET['msg'])) {
+    $error = $_GET['msg'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +23,7 @@ require('../../scripts/get_transactions.php'); // $trns
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../../assets/img/logo.png" type="image/x-icon">
-    <title>Transactions - Sawongam Bank </title>
+    <title>Settings - Sawongam Bank </title>
     <link href="./css/index/mainMobile.css" rel="stylesheet">
     <link href="./css/index/table.css" media="(min-width: 600px)" rel="stylesheet">
     <link href="./css/index/desktop.css" media="(min-width: 900px)" rel="stylesheet">
@@ -44,7 +49,7 @@ require('../../scripts/get_transactions.php'); // $trns
                 <hr class="sidebar-divider">
                 <ul class="navbar-nav" id="sidebar-ul">
                     <li class="nav-item">
-                        <a class="nav-link " href="index.php">
+                        <a class="nav-link" href="index.php">
                             <i class="fas fa-tachometer-alt"></i>
                             <span>Dashboard</span>
                         </a>
@@ -56,9 +61,9 @@ require('../../scripts/get_transactions.php'); // $trns
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="transactions.php">
+                        <a class="nav-link" href="transactions.php">
                             <i class="fas fa-exchange-alt"></i>
-                            <span class="active-db">Transactions</span>
+                            <span>Transactions</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -72,12 +77,12 @@ require('../../scripts/get_transactions.php'); // $trns
                             <i class="fas fa-user"></i><span>Profile</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="settings.php">
-                            <i class="fas fa-adjust"></i><span>Settings</span>
+                            <i class="fas fa-adjust"></i><span class="active-db">Settings</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link" href="support.php">
                             <i class="fas fa-envelope"></i><span>Support</span>
                         </a>
@@ -120,75 +125,74 @@ require('../../scripts/get_transactions.php'); // $trns
                 <div class="dashboard-header  d-flex justify-between">
                     <!--!Dashboard header-->
                     <h3>
-                        Bank Statement
+                        Edit Profile
                     </h3>
-                    <a href="../../scripts/statement_generator.php" class="generate-dash-btn"><i class="fas fa-download fa-sm text-white-50"></i>Download</a>
                 </div>
 
-                <!--First Rows-->
                 <div class="overview-row row d-flex">
-                    <!--All Transactions-->
-                    <div class="earnings ">
-                        <div class="earning-container row2-bgEdit">
-                            <!--head of Transactions chart-->
-                            <div class="earning-header d-flex justify-between">
-                                <h6 class="earning-header-text">All Transactions</h6>
-                                <button class="button-nobg" type="button"><i class="fas fa-ellipsis-v "></i></button>
-                            </div>
-                            <!--body of Transactions chart-->
-                            <div class="earning-body">
-                                <div class="table-itself margin-column-form">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Transaction Type</th>
-                                                <th>Description</th>
-                                                <th>Amount</th>
-                                                <th>Remarks</th>
-                                                <th>Transaction Date</th>
-                                                <th>Transaction Time</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            foreach ($trns as $trn) {
-                                                $date = $trn['Date'];
-                                                $sender = $trn['Sender'];
-                                                $receiver = $trn['Receiver'];
-                                                $amount = $trn['Amount'];
-                                                $remarks = $trn['Remarks'];
-                                                $time = $trn['Time'];
-                                                if ($trn['Sender'] == $accNo) {
-                                                    echo "<tr>
-                                                    <td>Debit</td>
-                                                    <td>Transfer to $receiver</td>
-                                                    <td>Rs. $amount</td>
-                                                    <td>$remarks</td>
-                                                    <td>$date</td>
-                                                    <td>$time</td>
-                                                </tr>";
-                                                } else {
-                                                    echo "<tr>
-                                                    <td>Credit</td>
-                                                    <td>Transfer from $receiver</td>
-                                                    <td>Rs. $amount</td>
-                                                    <td>$remarks</td>
-                                                    <td>$date</td>
-                                                    <td>$time</td>
-                                                </tr>";
-                                                }
-                                            }
-                                            ?>
-                                        </tbody>
-                                    </table>
+                    <!--Profile Info-->
+                    <div class="earnings profile">
+                        <div class="col-profile prof-col1 margin-row-prof shadow-edit">
+                            <div class="prof-body pr-body2">
+                                <img id="profilePic" src="<?php echo $pp ?>" alt="Profile Picture">
+                                <div>
+                                    <input type="file" id="fileInput" style="display: none;" accept="image/*">
+                                    <button class="button-profile" type="button"
+                                        onclick="document.getElementById('fileInput').click();">Change Photo</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!--Account Info-->
+                    <div class="revenue profileInfo">
+                        <div class="revenue-container row2-bgEdit">
+                            <div class="user-setting-head project-head">
+                                <h6>Change Account Info</h6>
+                            </div>
+                            <div class="user-setting-body project-body">
+                                <form action="../../scripts/change_accinfo.php" method="POST">
+                                    <!--row1-->
+                                    <div class="form-row d-flex justify-between">
+                                        <div class="form-row-col d-flex flex-direction-column">
+                                            <label class="form-label" for="name"><strong>Name</strong></label>
+                                            <input class="form-control-prof" type="text" id="name"
+                                                value="<?php echo $name ?>" name="name">
+                                        </div>
+                                        <div class="form-row-col d-flex flex-direction-column">
+                                            <label class="form-label" for="email"><strong>Email Address</strong></label>
+                                            <input class="form-control-prof" type="email" id="email"
+                                                value="<?php echo $email ?>" name="email">
+                                        </div>
+                                    </div>
+                                    <!--row2-->
+                                    <div class="form-row d-flex justify-between">
+                                        <div style="margin-bottom: 10px;"
+                                            class="form-row-col d-flex flex-direction-column">
+                                            <label class="form-label" for="address"><strong>Address</strong></label>
+                                            <input class="form-control-prof" type="text" id="address"
+                                                value="<?php echo $address ?>" name="address">
+                                        </div>
+                                    </div>
+                                    <small style="text-align: left; margin-bottom: 10px;" id="error-code"
+                                        class="error-font">
+                                        <?php echo $error ?>
+                                    </small>
+                                    <!--row3-->
+                                    <div class="form-row">
+                                        <div class="form-row-button">
+                                            <button class="button-profile" type="submit" name="change">Save
+                                                Settings</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <script src="../../assets/js/file_handle.js"></script>
 </body>
 
 </html>

@@ -1,11 +1,12 @@
 <?php
 //User Info Extraction
 $accNo = $_SESSION['AccNo'];
-$sql = "SELECT Name FROM userinfo WHERE AccNo = '$accNo'";
+$sql = "SELECT * FROM userinfo WHERE AccNo = '$accNo'";
 $result = mysqli_query($conn, $sql);
 $data = mysqli_fetch_assoc($result);
-$name = $data['Name'];
 
-// Splitting $name by space
+$name = $data['Name'];
 $fName = explode(' ', $name)[0];
+$address = $data['Address'];
+$email = $data['Email'];
 
