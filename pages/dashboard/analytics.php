@@ -140,7 +140,7 @@ if (isset($_GET['msg'])) {
                 <div class="card-text">
                   <div class="card-span"><span style="color: rgb(28, 200, 138);">Income</span></div>
                   <div class="card-price"><span>Rs.
-                  <?php echo $totalCredit ?>
+                      <?php echo $totalCredit ?>
                     </span></div>
                 </div>
                 <div class="card-icon">
@@ -157,8 +157,8 @@ if (isset($_GET['msg'])) {
                   <div class="card-span"><span style="color: red;">Expense</span>
                   </div>
                   <div class="card-price"><span>Rs.
-                  <?php echo $totalDebit ?>
-                  </span></div>
+                      <?php echo $totalDebit ?>
+                    </span></div>
                 </div>
                 <div class="card-icon">
                   <i class="fas fa-percent fa-2x text-gray-300"></i>
@@ -171,10 +171,9 @@ if (isset($_GET['msg'])) {
             <div class="card">
               <div class="card-body">
                 <div class="card-text">
-                  <div class="card-span"><span style="color: rgb(78, 115, 223);">Net Income</span></div>
+                  <div class="card-span"><span style="color: rgb(78, 115, 223);">Turnover</span></div>
                   <div class="card-price"><span>Rs.
-                  <?php echo $balance ?>
-                      
+                      <?php echo $totalCredit + $totalDebit ?>
                     </span></div>
                 </div>
                 <div class="card-icon">
@@ -188,10 +187,23 @@ if (isset($_GET['msg'])) {
             <div class="card">
               <div class="card-body">
                 <div class="card-text">
-                  <div class="card-span"><span style="color: rgb(246, 194, 62);">Expense</span></div>
-                  <div class="card-price"><span>Rs.
-                      <?php echo $totalDebit ?>
-                    </span></div>
+                  <div class="card-span">
+                    <span style="color: rgb(54, 185, 204);">I/E Ratio</span>
+                  </div>
+                  <div class="card-price d-flex card-task">
+                    <?php
+                    // Check if totalDebit is not zero to avoid division by zero
+                    if ($totalDebit != 0) {
+                      $incomeToOutcomeRatio = ($totalCredit / $totalDebit) * 100;
+                      echo '<span>' . number_format($incomeToOutcomeRatio, 1) . '%</span>';
+                    } else {
+                      echo '<span>Infinity</span>';
+                    }
+                    ?>
+                    <div class="progress3">
+                      <div style="width: <?php echo min(100, $incomeToOutcomeRatio); ?>%;" class="progress-bar3"></div>
+                    </div>
+                  </div>
                 </div>
                 <div class="card-icon">
                   <i class="fas fa-exchange-alt fa-2x text-gray-300"></i>
@@ -199,119 +211,45 @@ if (isset($_GET['msg'])) {
               </div>
             </div>
           </div>
-        </div>
-        <!--First Rows-->
-        <div class="overview-row row d-flex">
-          <!--Recent Transactions-->
-          <div class="earnings ">
-            <div class="earning-container row2-bgEdit">
-              <!--head of Transactions chart-->
-              <div class="earning-header d-flex justify-between">
-                <h6 class="earning-header-text">Recent Transactions</h6>
-                <button class="button-nobg" type="button"><i class="fas fa-ellipsis-v "></i></button>
-              </div>
-              <!--body of Transactions chart-->
-              <div class="earning-body">
-                <div class="table-itself margin-column-form">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Transaction Type</th>
-                        <th>Description</th>
-                        <th>Amount</th>
-                        <th>Remarks</th>
-                        <th>Transaction Date</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      $count = 0;
-                      foreach ($trns as $trn) {
-                        if ($count >= 7)
-                          break; // Stop the loop after 7 transactions
-                      
-                        $date = $trn['Date'];
-                        $sender = $trn['Sender'];
-                        $receiver = $trn['Receiver'];
-                        $amount = $trn['Amount'];
-                        $remarks = $trn['Remarks'];
-                        if ($trn['Sender'] == $accNo) {
-                          echo "<tr>
-                                                    <td>Debit</td>
-                                                    <td>Transfer to $receiver</td>
-                                                    <td>Rs. $amount</td>
-                                                    <td>$remarks</td>
-                                                    <td>$date</td>
-                                                </tr>";
-                        } else {
-                          echo "<tr>
-                                                    <td>Credit</td>
-                                                    <td>Transfer from $receiver</td>
-                                                    <td>Rs. $amount</td>
-                                                    <td>$remarks</td>
-                                                    <td>$date</td>
-                                                </tr>";
-                        }
 
-                        $count++; // Increment the count
-                      }
-                      ?>
-                    </tbody>
-                  </table>
+          <!--First Rows-->
+          <div class="overview-row row d-flex">
+            <!--Recent Transactions-->
+            <div class="earnings ">
+              <div class="earning-container row2-bgEdit">
+                <!--head of Transactions chart-->
+                <div class="earning-header d-flex justify-between">
+                  <h6 class="earning-header-text">Daily Transaction Overview</h6>
+                  <button class="button-nobg" type="button"><i class="fas fa-ellipsis-v "></i></button>
+                </div>
+                <!--body of Transactions chart-->
+                <div class="line_chart">
+                <canvas id="line_chart"></canvas>
+                </div>
+              </div>
+            </div>
+            <!--Transfer-->
+            <div class="revenue">
+              <div class="revenue-container row2-bgEdit">
+                <!--head of transfer chart-->
+                <div class="revenue-header d-flex justify-between">
+                  <h6 class="revenue-header-text">Cash Flow</h6>
+                  <button class="button-nobg" type="button"><i class="fas fa-ellipsis-v "></i></button>
+                </div>
+                <!--body of transfer chart-->
+                <div class="doughnut_chart">
+                  <canvas id="doughnut_chart"></canvas>
                 </div>
               </div>
             </div>
           </div>
-          <!--Transfer-->
-          <div class="revenue">
-            <div class="revenue-container row2-bgEdit">
-              <!--head of transfer chart-->
-              <div class="revenue-header d-flex justify-between">
-                <h6 class="revenue-header-text">Transfer Funds</h6>
-                <button class="button-nobg" type="button"><i class="fas fa-ellipsis-v "></i></button>
-              </div>
-              <!--body of transfer chart-->
-              <div class="user-setting-body project-body">
-                <form action="../../scripts/bal_transfer.php" method="POST">
-                  <!--Reciever Acccount Number-->
-                  <div class="form-row d-flex justify-between">
-                    <div class="form-row-col d-flex flex-direction-column">
-                      <label class="form-label" for="receiver_accNo"><strong>Account
-                          Number</strong></label>
-                      <input class="form-control-prof" type="text" id="receiver_accNo" name="receiver_accNo">
-                    </div>
-                  </div>
-                  <!--Amount-->
-                  <div class="form-row d-flex justify-between">
-                    <div class="form-row-col d-flex flex-direction-column">
-                      <label class="form-label" for="amount"><strong>Amount</strong></label>
-                      <input class="form-control-prof" type="number" id="amount" name="amount">
-                    </div>
-                  </div>
-                  <!--Remarks-->
-                  <div class="form-row d-flex justify-between">
-                    <div class="form-row-col d-flex flex-direction-column">
-                      <label class="form-label" for="remarks"><strong>Remarks</strong></label>
-                      <input class="form-control-prof" type="text" id="remarks" name="remarks">
-                    </div>
-                  </div>
-                  <small id="error-code" class="error-font">
-                    <?php echo $error ?>
-                  </small>
-                  <!--row3-->
-                  <div class="form-row">
-                    <div class="form-row-button text-center">
-                      <button class="button-profile" name="submit" id="submit" type="submit">Transfer</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
-  </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/doughnut_chart.js"></script>
+    <script src="./js/line_chart.js"></script>
 </body>
 
 </html>

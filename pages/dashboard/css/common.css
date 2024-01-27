@@ -526,3 +526,35 @@ footer {
   }
 
 }
+
+
+
+/* Analytics CSS */
+.line_chart canvas, .doughnut_chart canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.doughnut_chart canvas {
+  padding: 5%;
+}
+
+.line_chart, .doughnut_chart {
+  display: flex;
+  flex: 1 2 auto;
+  width: 100%;
+  height: auto;
+  overflow: auto;
+}
+
+@media screen and (min-width: 600px) {
+  .line_chart, .doughnut_chart {
+    flex: 1 2 auto;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .line_chart, .doughnut_chart {
+    flex: 1 2 auto;
+  }
+}
