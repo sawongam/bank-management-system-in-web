@@ -56,6 +56,10 @@ $receiver_balance = mysqli_fetch_assoc(mysqli_query($conn, "SELECT Balance FROM 
 $sender_balance -= $amount;
 $receiver_balance += $amount;
 
+//Get the current Balance
+$curr_sen_balance = $sender_balance;
+$curr_rec_balance = $receiver_balance;
+
 //Update Sender's Balance
 $update_sender_balance = "UPDATE balance SET Balance = '$sender_balance' WHERE AccNo = '$sender_accNo'";
 $update_sender_balance_result = mysqli_query($conn, $update_sender_balance);
@@ -65,7 +69,7 @@ $update_receiver_balance = "UPDATE balance SET Balance = '$receiver_balance' WHE
 $update_receiver_balance_result = mysqli_query($conn, $update_receiver_balance);
 
 //Insert into Transactions
-$insert_transaction = "INSERT INTO transactions (Sender, Receiver, Amount, Remarks) VALUES ('$sender_accNo', '$receiver_accNo', '$amount', '$remarks')";
+$insert_transaction = "INSERT INTO transactions (Sender, Receiver, Amount, Remarks, SenBalance, RecBalance) VALUES ('$sender_accNo', '$receiver_accNo', '$amount', '$remarks', '$curr_sen_balance', '$curr_rec_balance')";
 $insert_transaction_result = mysqli_query($conn, $insert_transaction);
 
 // Check if the referrer is index.php or transfer.php

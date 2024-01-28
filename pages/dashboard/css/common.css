@@ -539,6 +539,10 @@ footer {
   padding: 5%;
 }
 
+.line_chart canvas {
+  padding: 0 1% 1% 1%;
+}
+
 .line_chart, .doughnut_chart {
   display: flex;
   flex: 1 2 auto;

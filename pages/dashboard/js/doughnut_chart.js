@@ -1,4 +1,4 @@
-fetch('../../scripts/analytics_for_js.php')
+fetch('../../scripts/doughnut_js.php')
     .then(response => response.json())
     .then(data => {
         var ctx = document.getElementById('doughnut_chart').getContext('2d');

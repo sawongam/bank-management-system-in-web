@@ -219,7 +219,7 @@ if (isset($_GET['msg'])) {
               <div class="earning-container row2-bgEdit">
                 <!--head of Transactions chart-->
                 <div class="earning-header d-flex justify-between">
-                  <h6 class="earning-header-text">Daily Transaction Overview</h6>
+                  <h6 class="earning-header-text">Balance Overview</h6>
                   <button class="button-nobg" type="button"><i class="fas fa-ellipsis-v "></i></button>
                 </div>
                 <!--body of Transactions chart-->
@@ -233,7 +233,7 @@ if (isset($_GET['msg'])) {
               <div class="revenue-container row2-bgEdit">
                 <!--head of transfer chart-->
                 <div class="revenue-header d-flex justify-between">
-                  <h6 class="revenue-header-text">Cash Flow</h6>
+                  <h6 class="revenue-header-text">Cashflow</h6>
                   <button class="button-nobg" type="button"><i class="fas fa-ellipsis-v "></i></button>
                 </div>
                 <!--body of transfer chart-->

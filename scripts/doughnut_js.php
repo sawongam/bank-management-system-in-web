@@ -8,7 +8,7 @@ if (!isset($_SESSION['AccNo'])) {
 // Database Connection
 require '../configs/db.php';
 
-//Variables Declarations
+//Doughtnut Data
 $totalDebit = 0;
 $totalCredit = 0;
 $accNo = $_SESSION['AccNo'];
@@ -24,4 +24,3 @@ foreach ($trns as $trn) {
 }
 
 echo json_encode(['totalCredit' => $totalCredit, 'totalDebit' => $totalDebit]);
-
