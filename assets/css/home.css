@@ -30,7 +30,7 @@ nav ul.nav-change-color {
 }
 
 nav ul a.nav-change-color:hover {
-    color: #F1A501!important;
+    color: #F1A501 !important;
     scale: 1.2;
 }
 
@@ -220,8 +220,8 @@ nav ul a.nav-change-color:hover {
 }
 
 .text-rotate:hover {
-    transform: rotate(360deg)!important;
-    color: black!important;
+    transform: rotate(360deg) !important;
+    color: black !important;
 }
 
 

@@ -1,3 +1,4 @@
+// Grabbing Image and Uploading to PHP Server
 document.getElementById('fileInput').addEventListener('change', function () {
     var file = this.files[0];
     var formData = new FormData();
@@ -7,7 +8,7 @@ document.getElementById('fileInput').addEventListener('change', function () {
         method: 'POST',
         body: formData
     })
-    .then(() => {
-        location.reload();
-    });
+        .then(() => {
+            location.reload();
+        });
 });

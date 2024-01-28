@@ -114,7 +114,7 @@ if (isset($_GET['msg'])) {
                         <p><span class="avatar-text">
                                 <?php echo $name ?>
                             </span></p>
-                            <div class="avatar-nav" style="background-image: url(<?php echo $pp ?>);"></div>
+                        <div class="avatar-nav" style="background-image: url(<?php echo $pp ?>);"></div>
                     </li>
                 </ul>
             </div>
@@ -145,7 +145,8 @@ if (isset($_GET['msg'])) {
                                 <div class="user-setting-body project-body">
                                     <form action="../../scripts/send_email.php" method="POST">
                                         <!--row1-->
-                                        <div style="margin-bottom: 0px;" class="form-row form-row-col2 d-flex justify-between">
+                                        <div style="margin-bottom: 0px;"
+                                            class="form-row form-row-col2 d-flex justify-between">
                                             <div
                                                 class="form-row-textarea d-flex flex-direction-column margin-column-form">
                                                 <label class="form-label" for="signature"><strong>Share any
@@ -153,8 +154,9 @@ if (isset($_GET['msg'])) {
                                                         experience.</strong></label>
                                                 <textarea class="form-control-prof" name="signature" id="signature"
                                                     cols="30" rows="10"></textarea>
-                                                    <br>
-                                                <small style="text-align: left; margin-bottom: 0px;" id="error-code" class="error-font">
+                                                <br>
+                                                <small style="text-align: left; margin-bottom: 0px;" id="error-code"
+                                                    class="error-font">
                                                     <?php echo $error ?>
                                                 </small>
                                             </div>

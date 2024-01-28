@@ -63,7 +63,9 @@ if (isset($_GET['msg'])) {
                                 Password</label>
                             <input type="password" class="form-control rounded-4 textfield" id="confirm-password">
                             <img src="../assets/img/eye-open.png" class="password-icon" id="eye-confirm">
-                            <small id="error-confirmPassword" class="form-text text-danger error-font"> <?php echo $error?> </small>
+                            <small id="error-confirmPassword" class="form-text text-danger error-font">
+                                <?php echo $error ?>
+                            </small>
                         </div>
 
                         <div class="text-center">

@@ -44,4 +44,4 @@ $result_saveUserInfo = mysqli_query($conn, $sql_saveUserInfo);
 
 session_start();
 $_SESSION['AccNo'] = $accNo;
-header('Location: ../pages/dashboard.php');
+header('Location: ../pages/dashboard/index.php');

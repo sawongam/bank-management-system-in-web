@@ -119,7 +119,7 @@ if (isset($_GET['msg'])) {
                         <p><span class="avatar-text">
                                 <?php echo $name ?>
                             </span></p>
-                            <div class="avatar-nav" style="background-image: url(<?php echo $pp ?>);"></div>
+                        <div class="avatar-nav" style="background-image: url(<?php echo $pp ?>);"></div>
                     </li>
                 </ul>
             </div>

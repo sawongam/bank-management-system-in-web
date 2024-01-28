@@ -15,7 +15,6 @@
             font-family: 'Arial', sans-serif;
             background-color: #4e73df;
             margin: 0;
-            /* padding: 20px; */
             padding: 20px;
             display: flex;
             align-items: center;
@@ -24,7 +23,6 @@
         }
 
         .container {
-            /* max-width: 800px; */
             max-width: 675px;
             width: 100%;
             background-color: #ebefff;
@@ -56,7 +54,6 @@
 
         h3 {
             color: #4e73df;
-            /* text-align: center; */
         }
 
         .statement {
@@ -83,31 +80,6 @@
 
         tbody tr:hover {
             background-color: #e2e6ea;
-        }
-
-        /* Styles for printing */
-        @media print {
-            body {
-                background-color: white;
-                width: 210mm;
-                height: 297mm;
-                margin: 0;
-                padding: 20mm;
-            }
-
-            .container {
-                box-shadow: none;
-                border: none;
-            }
-
-            .header img {
-                max-width: 50mm;
-            }
-
-            .statement th,
-            .statement td {
-                padding: 5mm;
-            }
         }
     </style>
 

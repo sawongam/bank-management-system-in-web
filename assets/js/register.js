@@ -1,4 +1,4 @@
-// Eye Logic
+// Eye Opening Logic
 let eyeRegister = document.getElementById('eye-register');
 let eyeConfirm = document.getElementById('eye-confirm');
 let password = document.getElementById('password');
@@ -78,19 +78,21 @@ document.querySelector('form').addEventListener('submit', function (event) {
         errorPassword.textContent = '';
     }
 
-    // if (password.length < 8) {
-    //     errorPassword.textContent = 'Password must be at least 8 characters long';
-    //     return;
-    // } else {
-    //     errorPassword.textContent = '';
-    // }
+    if (password.length < 8) {
+        event.preventDefault();
+        errorPassword.textContent = 'Password must be at least 8 characters long';
+        return;
+    } else {
+        errorPassword.textContent = '';
+    }
 
-    // if (!/\d/.test(password)) {
-    //     errorPassword.textContent = 'Password must contain at least one number';
-    //     return;
-    // } else {
-    //     errorPassword.textContent = '';
-    // }
+    if (!/\d/.test(password)) {
+        event.preventDefault();
+        errorPassword.textContent = 'Password must contain at least one number';
+        return;
+    } else {
+        errorPassword.textContent = '';
+    }
 
     if (confirmPassword !== password) {
         event.preventDefault();

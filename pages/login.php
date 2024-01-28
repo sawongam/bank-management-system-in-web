@@ -89,7 +89,7 @@ if (isset($_GET['msg'])) {
                 </div>
             </div>
 
-            <!-- Sawongam Logo Section -->
+            <!-- Hidden Logo Section -->
             <div class="col-lg-6 align-items-center justify-content-center pb-5 d-none d-lg-flex"
                 style="height: 100vh; background-position: right;">
                 <a href="../index.php"><img src="../assets/img/logo.png" class="zoom-on-hover" alt="Sawongam Logo"></a>

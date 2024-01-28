@@ -60,7 +60,7 @@
     </nav>
 
 
-    <!-- Bank Front Section  -->
+    <!-- Home Front Section  -->
     <section class="pt-3">
         <div class="container">
             <div class="row justify-content-center">

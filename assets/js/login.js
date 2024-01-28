@@ -1,4 +1,4 @@
-// Eye Logic
+// Eye Opening Logic
 let eyeLogin = document.getElementById('eye-login');
 let password = document.getElementById('password');
 eyeLogin.onclick = function () {
@@ -18,7 +18,6 @@ document.querySelector('form').addEventListener('submit', function (event) {
     let password = document.getElementById('password').value;
     let errorAccNo = document.getElementById('error-accountNumber');
     let errorPassword = document.getElementById('error-password');
-    let eyeLogin = document.getElementById('eye-login');
 
     if (accNo === '') {
         event.preventDefault();

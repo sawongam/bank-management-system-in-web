@@ -224,7 +224,7 @@ if (isset($_GET['msg'])) {
                 </div>
                 <!--body of Transactions chart-->
                 <div class="line_chart">
-                <canvas id="line_chart"></canvas>
+                  <canvas id="line_chart"></canvas>
                 </div>
               </div>
             </div>
