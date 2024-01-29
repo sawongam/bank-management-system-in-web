@@ -18,12 +18,22 @@ if (!$result) {
 }
 
 $data = mysqli_fetch_assoc($result);
-$hashed_password = $data['Pass'];
 
-if (password_verify($password, $hashed_password)) {
-   session_start();
-   $_SESSION['AccNo'] = $data['AccNo'];
-   header('Location: ../pages/dashboard/index.php');
+// Check if the account number exists in the database
+if ($data) {
+    $hashed_password = $data['Pass'];
+
+    if (password_verify($password, $hashed_password)) {
+       session_start();
+       $_SESSION['AccNo'] = $data['AccNo'];
+       header('Location: ../pages/dashboard/index.php');
+       exit;
+    } else {
+       header('Location: ../pages/login.php?msg=Invalid Credentials');
+       exit;
+    }
 } else {
-   header('Location: ../pages/login.php?msg=Invalid Credentials');
+    // Redirect to the login page with an error message if the account number doesn't exist
+    header('Location: ../pages/login.php?msg=Account number does not exist');
+    exit;
 }
