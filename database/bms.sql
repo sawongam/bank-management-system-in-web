@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2024 at 05:58 PM
+-- Generation Time: Jan 30, 2024 at 08:45 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `balance` (
   `AccNo` int(11) NOT NULL,
-  `Balance` decimal(10,0) DEFAULT NULL
+  `Balance` decimal(15,0) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -108,9 +108,9 @@ INSERT INTO `transactions` (`Sender`, `Receiver`, `Amount`, `Remarks`, `Date`, `
 
 CREATE TABLE `userinfo` (
   `AccNo` int(11) NOT NULL,
-  `Name` varchar(30) DEFAULT NULL,
-  `Address` varchar(30) DEFAULT NULL,
-  `Email` varchar(20) DEFAULT NULL
+  `Name` varchar(50) DEFAULT NULL,
+  `Address` varchar(100) DEFAULT NULL,
+  `Email` varchar(64) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
