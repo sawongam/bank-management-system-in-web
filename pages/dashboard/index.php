@@ -8,6 +8,7 @@ if (!isset($_SESSION['AccNo'])) {
 require('../../configs/db.php');
 require('pp_check.php'); // PP Check
 require('../../scripts/get_balance.php'); // $balance
+require('../../scripts/get_interest.php'); // $interest
 require('../../scripts/get_userinfo.php'); // $name, $fName
 require('../../scripts/get_analytics.php'); // $totalDebit, $totalCredit
 require('../../scripts/get_transactions.php'); // $trns
@@ -155,9 +156,11 @@ if (isset($_GET['msg'])) {
                         <div class="card">
                             <div class="card-body">
                                 <div class="card-text">
-                                    <div class="card-span"><span style="color: rgb(246, 194, 62);">Interest Rate</span>
+                                    <div class="card-span"><span style="color: rgb(246, 194, 62);">Interest</span>
                                     </div>
-                                    <div class="card-price"><span>6.09%</span></div>
+                                    <div class="card-price"><span>Rs.
+                                            <?php echo $interest ?>
+                                        </span></div>
                                 </div>
                                 <div class="card-icon">
                                     <i class="fas fa-percent fa-2x text-gray-300"></i>

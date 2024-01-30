@@ -73,7 +73,7 @@
                     </p>
                     <div class="row">
                         <div class="col-md-6 mb-5">
-                            <button class="btn btn-primary border-0 bank-btn">Register now</button>
+                            <a href="register.php"><button class="btn btn-primary border-0 bank-btn">Register now</button></a>
                         </div>
                         <ul class="list-inline">
                             <li class="list-inline-item bank-phone"> <img src="../assets/img/home-call.png"

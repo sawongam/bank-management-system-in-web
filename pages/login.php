@@ -39,8 +39,10 @@ if (isset($_GET['msg'])) {
             <!-- Login Form Section -->
             <div class="col-lg-6 d-flex align-items-center justify-content-center" style="height: 100vh;">
                 <div class="col-7">
-                    <div class="text-center mb-5 d-block d-lg-none"><img src="../assets/img/logo.png" height="80px"
-                            class="zoom-on-hover" alt="logo"></div>
+                    <div class="text-center mb-5 d-block d-lg-none">
+                        <a href="home.php"><img src="../assets/img/logo.png" height="80px"
+                            class="zoom-on-hover" alt="logo"></a>
+                    </div>
                     <div class="col-md-12 fw-bold mb-5 text-center login-header">Welcome to Sawongam Bank!</div>
                     <form action="../scripts/login_auth.php" method="POST">
                         <div class="mb-2">
