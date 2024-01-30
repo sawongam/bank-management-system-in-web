@@ -37,7 +37,18 @@ To set up the project locally, follow these steps:
 
 ## Demo
 
-Open the project in your browser. You can register a new account or login if you already have an account. Once logged in, you can manage your account, view your transaction history, and transfer funds.
+You can visit the [link](http://sawongambnk.atspace.cc) to visit the live version of the website. 
+
+You can register a new account or log in using the following credentials:
+- Account Number: 200
+- Password: a
+
+Once logged in, you can access your account, transfer funds, view your profile, transaction history, and analytics.
+
+## Screenshots:
+![Home](https://i.ibb.co/ck6s0ss/bank-management-system-home.jpg)
+![Dashboard](https://i.ibb.co/pZJJFVV/bank-management-system-dashboard.jpg)
+![Analytics](https://i.ibb.co/HGnX1gX/bank-management-system-analytics.jpg)
 
 ## Contribution
 
