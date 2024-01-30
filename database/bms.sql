@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2024 at 08:45 AM
+-- Generation Time: Jan 30, 2024 at 04:38 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -29,18 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `balance` (
   `AccNo` int(11) NOT NULL,
-  `Balance` decimal(15,0) DEFAULT NULL
+  `Balance` decimal(15,0) DEFAULT NULL,
+  `Interest` decimal(15,0) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `balance`
 --
 
-INSERT INTO `balance` (`AccNo`, `Balance`) VALUES
-(197, '33'),
-(198, '5'),
-(199, '38'),
-(200, '200');
+INSERT INTO `balance` (`AccNo`, `Balance`, `Interest`) VALUES
+(197, '35', '2'),
+(198, '5', '0'),
+(199, '40', '2'),
+(200, '212', '12');
 
 -- --------------------------------------------------------
 
