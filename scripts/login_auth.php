@@ -12,14 +12,14 @@ $password = $_POST['password'];
 $sql = "SELECT * FROM credentials WHERE AccNo = '$accNo'";
 $result = mysqli_query($conn, $sql);
 
+// Check if the account number exists in the database
 if (!$result) {
    header('Location: ../pages/login.php?msg=Cannot connect to database');
    exit;
 }
 
 $data = mysqli_fetch_assoc($result);
-
-// Check if the account number exists in the database
+// Verify the password
 if ($data) {
     $hashed_password = $data['Pass'];
 
