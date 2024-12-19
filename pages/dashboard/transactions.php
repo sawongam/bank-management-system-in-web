@@ -153,12 +153,12 @@ require('../../scripts/get_transactions.php'); // $trns
                                         <tbody>
                                             <?php
                                             foreach ($trns as $trn) {
-                                                $date = $trn['Date'];
+                                                $date = date('d-m-Y', strtotime($trn['DateTime']));
                                                 $sender = $trn['Sender'];
                                                 $receiver = $trn['Receiver'];
                                                 $amount = $trn['Amount'];
                                                 $remarks = $trn['Remarks'];
-                                                $time = $trn['Time'];
+                                                $time = date('H:i:s', strtotime($trn['DateTime']));
                                                 if ($trn['Sender'] == $accNo) {
                                                     echo "<tr>
                                                     <td>Debit</td>

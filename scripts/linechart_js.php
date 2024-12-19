@@ -23,11 +23,11 @@ foreach ($trns as $trn) {
     if ($trn['Sender'] == $accNo) {
         $bal_count++;
         $curr_balances[] = $trn['SenBalance'];
-        $currDate[] = $trn['Date'];
+        $currDate[] = date('d M', strtotime($trn['DateTime']));
     } else if ($trn['Receiver'] == $accNo) {
         $bal_count++;
         $curr_balances[] = $trn['RecBalance'];
-        $currDate[] = $trn['Date'];
+        $currDate[] = date('d M', strtotime($trn['DateTime']));
     }
 }
 

@@ -231,7 +231,7 @@ if (isset($_GET['msg'])) {
                                                 if ($count >= 7)
                                                     break; // Stop the loop after 7 transactions
                                             
-                                                $date = $trn['Date'];
+                                                $date = date("d-m-Y", strtotime($trn['DateTime']));
                                                 $sender = $trn['Sender'];
                                                 $receiver = $trn['Receiver'];
                                                 $amount = $trn['Amount'];
